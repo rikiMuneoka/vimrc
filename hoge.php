@@ -1,16 +1,16 @@
 <?php
 
 
-$a = func1();
+$a = func1(22);
 
 $c = $a * 2;
 
 echo $c;
 
 
-function func1()
+function func1($oh)
 {
-    return 2*4;
+    return $oh * $oh;
 }
 
 
