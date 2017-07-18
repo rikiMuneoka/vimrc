@@ -5,13 +5,15 @@ filetype plugin indent off     " required!
 
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
-  call neobundle#rc(expand('~/.vim/bundle/'))
+  call neobundle#begin(expand('~/.vim/bundle/'))
 endif
+
 
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'L9'
-NeoBundle 'git://github.com/mattn/zencoding-vim.git'
-NeoBundle 'git://github.com/Shougo/neocomplcache.git'
+call neobundle#end()
+
+
 
 " ファイル形式別プラグインのロードを有効化
 filetype plugin indent on     " required!
@@ -29,18 +31,6 @@ nnoremap <silent> tn :<C-u>tabnew<CR>:tabmove<CR>
 nnoremap <silent> tc :<C-u>tabclose<CR>
 
 
-" FuzzyFinder.vim
-nnoremap <Space>f f
-nnoremap <Space>F F
-nnoremap f <Nop>
-nnoremap <silent> fb :<C-u>FuzzyFinderBuffer!<CR>
-nnoremap <silent> ff :<C-u>FuzzyFinderFile!
-<C-r>=expand('%:~:.')[:-1-len(expand('%:~:.:t'))]<CR><CR>
-nnoremap <silent> fm :<C-u>FuzzyFinderMruFile!<CR>
-nnoremap <silent> tb :<C-u>tabnew<CR>:tabmove<CR>:FuzzyFinderBuffer!<CR>
-nnoremap <silent> tf :<C-u>tabnew<CR>:tabmove<CR>:FuzzyFinderFile!
-<C-r>=expand('#:~:.')[:-1-len(expand('#:~:.:t'))]<CR><CR>
-nnoremap <silent> tm :<C-u>tabnew<CR>:tabmove<CR>:FuzzyFinderMruFile!<CR>
 
 "-------------------------------------------------
 " Editor エディター設定
@@ -172,51 +162,51 @@ inoremap <expr><C-e> neocomplcache#cancel_popup()
 "-------------------------------------------------
 " Basic 基本設定
 "-------------------------------------------------
- 
+
 " カーソルの上または下に表示する最小限の行数
 set scrolloff=5
- 
+
 " 入力されているテキストの最大幅 「0」で無効
 set textwidth=0
- 
+
 " バックアップの作成は行わない
 set nobackup
- 
+
 " Vimの外部で変更されたことが判明したとき、自動的に読み直す
 set autoread
- 
+
 " スワップファイルの作成は行わない
 set noswapfile
- 
+
 " 保存しないで他のファイルを表示することが出来るようにする
 set hidden
- 
+
 " バックスペースでインデントや改行を削除できるようにする
 set backspace=indent,eol,start
- 
+
 " 自動整形の実行方法
 set formatoptions=lmoq
- 
+
 " ビープ音 ビジュアルベルを使用しない
 set vb t_vb=
- 
+
 " ファイルブラウザの初期ディレクトリ
 set browsedir=buffer
- 
+
 " コマンド (の一部) を画面の最下行に表示する
 set showcmd
- 
+
 " カーソルが何行目の何列目に置かれているかを表示する
 set ruler
- 
+
 " ステータス行を常に表示する
 set laststatus=2
- 
+
 " コマンドラインに使われる画面上の行数
 set cmdheight=2
- 
+
 " Insertモード、ReplaceモードまたはVisualモードで最終行にメッセージを表示する
 set showmode
- 
+
 "モードラインの無効化
 set nomodeline
